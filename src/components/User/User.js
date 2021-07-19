@@ -1,8 +1,20 @@
 import React from 'react'
 
-const User =() =>{
+
+
+const User =(props) =>{
+    const user =props.user;
+    console.log("hello",user);
+    
+
+      
+   
+   
     return (
         <div>
+         User Added :   {user.length}
+           
+         
 
         </div>
     );

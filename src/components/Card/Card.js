@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
+
 import CardDetails from '../CardDetails/CardDetails'
 import User from '../User/User'
 
@@ -8,9 +9,9 @@ export default function Card() {
     const [card, setCard] = useState([]);
     const [user,setUser] =useState([]);
     const handleOnClick= (cards) =>{
-        const newUser=[...user,card];
+        const newUser=[user,card];
     setUser(newUser);
-        console.log(cards)
+        console.log('user',cards);
     }
     useEffect( () =>{
         const url ="https://randomuser.me/api/?inc=gender,name,nat,location,picture,email&results=20"
@@ -21,9 +22,12 @@ export default function Card() {
         .catch(error => console.log(error))
 
     },[])
+    console.log(card);
     return (
         <div className="row" style={{backgroundColor:'#E5E5E5'}}>
-              <User> User:{user}</User>
+        <User user={card}   >
+              </User> 
+
       
      {
        
